@@ -1,7 +1,29 @@
 <!doctype html>
 <html>
 <head>
-<title>Web app name</title>
+<title>Do you have diabetes?</title>
 </head>
-<h1>Hello world.</h1>
+<body>
+    <form action = "/main" method="POST">
+        <label>Pregnancies</label><br>
+        <input type="number" name="pregnancies" placeholder="e.g: 2" required><br>
+        <label>Glucose</label><br>
+        <input type="number" name="glucose" placeholder="e.g: 89" required><br>
+        <label>Insulin</label><br>
+        <input type="number" name="insulin" placeholder="e.g: 79" required><br>
+        <label>BMI</label><br>
+        <input type="number" name="bmi" placeholder="e.g: 28" required><br>
+        <label>Age</label><br>
+        <input type="number" name="age" placeholder="e.g: 21" required><br>
+        <p> <input type ="submit" value="submit" /> </p>
+    </form>
+    <br>
+    {% if show %}
+        {% if result==0 %}
+            <h2>low probability</h2>
+        {% else %}
+            <h2>high probability</h2>
+        {% endif %}
+    {% endif %}
+    </body>
 </html>

@@ -13,23 +13,21 @@ with open(f'diabetes.pkl', 'rb') as f:
 
 app = Flask(__name__)
 
-@app.route("/")
+@app.route("/") #homepage
 def home():
     return render_template('home.html')
 
-@app.route('/getdelay', methods=['GET', 'POST'])
+@app.route('/main', methods=['GET', 'POST'])
 def main():
     if request.method == 'GET':
         return(render_template('home.html'))
     if request.method == 'POST':
-        pregnancies = request.form['Pregnancies']
-        glucose = request.form['Glucose']
-        insulin = request.form['Insulin']
-        bmi = request.form['BMI']
-        age = request.form['Age']
-        input_variables = pd.DataFrame([[pregnancies, glucose, insulin, bmi, age]],
-                                       columns=['Pregnancies', 'Glucose', 'Insulin', 'BMI', 'Age'],
-                                       dtype=float)
+        pregnancies = request.form['pregnancies']
+        glucose = request.form['glucose']
+        insulin = request.form['insulin']
+        bmi = request.form['bmi']
+        age = request.form['age']
+        input_variables = [[pregnancies, glucose, insulin, bmi, age]]
         prediction = model.predict(input_variables)[0]
         return render_template('home.html',
                                      original_input={'Pregnancies':pregnancies,
@@ -38,6 +36,7 @@ def main():
                                                      'BMI':bmi,
                                                      'Age':age},
                                      result=prediction,
+                                     show=True
                                      )
 if __name__ == "__main__":
     app.run(debug=True)
