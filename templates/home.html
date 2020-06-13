@@ -18,10 +18,11 @@
     font-size: 18px;
     }   
 
-    header{
+    .dihd{
         text-align: center;
         padding: 30px;
-        font-size: 20px;
+        font-size: 40px;
+        font-weight: 700;
     }
 
     .form-wrapper{
@@ -85,6 +86,10 @@
             padding: 0.7em 2.4em;
             font-size: 14px;
         }
+
+        .dropdown{
+            display: none !important;
+        }
     }
 
     .diabetes-edu{
@@ -105,6 +110,14 @@
         padding: 20px;
     }
 
+    nav{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        height: 10vh;
+        margin: 0 auto;
+    }
     .dropdown {
         height: 2vh;
         display: flex;
@@ -162,9 +175,8 @@
                 </li>
         </ul>
     </nav>
-    <header>
-        <h1>Do I have diabetes?</h1>
-    </header>
+    
+    <div class="dihd">Do I have diabetes?</h1></div>
     <div class="description" id="overview">
         <p>Diabetes is a condition that impairs the body’s ability to process blood glucose, otherwise
             known as blood sugar. Without ongoing, careful management, diabetes can lead to a buildup of 
