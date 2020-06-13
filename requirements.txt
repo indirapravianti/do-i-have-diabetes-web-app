@@ -1,4 +1,3 @@
 flask
-panda
 numpy
 gunicorn

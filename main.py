@@ -1,6 +1,5 @@
 from flask import Flask, request, render_template
 import numpy as np
-import pandas as pd
 import pickle
 
 # Use pickle to load in the pre-trained model.
