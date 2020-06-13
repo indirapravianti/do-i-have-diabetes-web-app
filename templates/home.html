@@ -17,103 +17,12 @@
     html, body {
     scroll-behavior: smooth;
     min-height:100%;
-    background: linear-gradient(0deg, #6441A5, #2a0845);
-    color: white;
+    background: white;
+    color: rgb(37, 37, 37);
     font-size: 18px;
     font-family: 'Montserrat', sans-serif;
+    line-height: 6vh;
     }   
-
-    .dihd{
-        text-align: center;
-        padding: 30px;
-        font-size: 40px;
-        font-weight: 700;
-    }
-
-    .form-wrapper{
-        margin: 0 auto;
-        width: 50%;
-        text-align: center;
-    }
-
-    .form-wrapper h2{
-        padding: 10px;
-    }
-
-    input{
-        padding: 14px 7px;
-        margin: 8px;
-        display: inline-block;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-    }
-
-    input[type=submit] {
-        background-color: transparent;
-        color: white;
-        font-weight: 700;
-        padding:0.7em 2.4em;
-        border:0.1em solid #FFFFFF;
-        margin:2em 0.3em 0.3em 0;
-        border-radius:0.12em;
-        box-sizing: border-box;
-        cursor: pointer;
-        font-size: 16px;
-        transition: all 0.2s;
-        text-transform: capitalize;
-    }
-    input[type=submit]:hover {
-        color:#000000;
-        background-color: #ffffff;
-    }
-
-    .result{
-        padding:2.1em 7.2em;
-        border:0.1em solid #FFFFFF;
-        margin:4em 0.3em 0.3em 0;
-        border-radius:0.12em;
-        box-sizing: border-box;
-    }
-
-    .description, .diabetes-edu{
-        padding: 20px;
-        max-width: 80%;
-        margin: 0 auto;
-    }
-
-    .description h2{
-        margin-top: 10px;
-    }
-
-    @media screen and (max-width: 768px) {
-        .result{
-            padding: 0.7em 2.4em;
-            font-size: 14px;
-        }
-
-        .dropdown{
-            display: none !important;
-        }
-    }
-
-    .diabetes-edu{
-        padding-top: 50px;
-    }
-    
-    .types{
-        margin-top: 20px;
-    }
-
-    ul{
-        margin-left: 40px;
-    }
-
-    footer{
-        text-align: center;
-        font-size: 12px;
-        padding: 20px;
-    }
 
     nav{
         display: flex;
@@ -137,7 +46,7 @@
     .dropdown button{
         background: none;
         border: none;
-        color: white;
+        color: #7E57C2;
         text-decoration: none;
         font-size: 14px;
         cursor: pointer;
@@ -147,7 +56,139 @@
     }
 
     .dropdown:hover button:not(:hover){
-        color: rgb(219, 219, 219);
+        color: #dfdfdf;
+    }
+
+    .dihd{
+        max-width:100%;
+        padding: 50px;
+        height: 75vh;
+
+    }
+
+    .dihd-desc{
+        float: left;
+        width:60%;
+        padding: 90px;
+    }
+
+    .dihd h1{
+        font-size: 40px;
+        color:#7E57C2;
+        margin-bottom: 20px;
+    }
+
+    .img-container{
+        float: right;
+        width: 40%;
+    }
+
+    .dihd-img{
+        width: 400px;
+        margin-top: 40px;
+    }
+
+    .diabetes-edu, .description{
+        padding: 20px;
+        padding-top: 50px;
+        max-width: 80%;
+        margin: 0 auto;
+    }
+
+    .description{
+        margin-top: 100px;
+    }
+
+    .description h2, .diabetes-edu p{
+        margin-top: 10px;
+    }
+
+    .form-wrapper{
+        margin: 0 auto;
+        width: 50%;
+        text-align: center;
+    }
+
+    .form-wrapper h2{
+        padding: 10px;
+    }
+
+    input{
+        padding: 14px 7px;
+        margin: 8px;
+        display: inline-block;
+        border: 1px solid rgb(32, 32, 32);
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type=submit] {
+        background-color: transparent;
+        color: #7E57C2;
+        font-weight: 700;
+        padding:0.7em 2.4em;
+        border:0.1em solid #7E57C2;
+        margin:2em 0.3em 0.3em 0;
+        border-radius:0.12em;
+        box-sizing: border-box;
+        cursor: pointer;
+        font-size: 16px;
+        transition: all 0.2s;
+        text-transform: capitalize;
+    }
+    input[type=submit]:hover {
+        color:white;
+        background-color: #7E57C2;
+    }
+
+    h2{
+        color: #7E57C2;
+    }
+
+    .result{
+        padding:2.1em 7.2em;
+        border:0.1em solid #FFFFFF;
+        margin:4em 0.3em 0.3em 0;
+        border-radius:0.12em;
+        box-sizing: border-box;
+    }
+
+    @media screen and (max-width: 768px) {
+        .result{
+            padding: 0.7em 2.4em;
+            font-size: 14px;
+        }
+
+        .dropdown{
+            display: none !important;
+        }
+
+        .dihd-img{
+            display:none;
+        }
+
+        .dihd-desc{
+            width: 100%;
+            padding: 20px;
+        }
+
+        .dihd-desc h1{
+            line-height: 1.3;
+        }
+    }
+    
+    .types{
+        margin-top: 20px;
+    }
+
+    ul{
+        margin-left: 40px;
+    }
+
+    footer{
+        text-align: center;
+        font-size: 12px;
+        padding: 20px;
     }
 </style>
 <body>
@@ -181,13 +222,20 @@
         </ul>
     </nav>
     
-    <div class="dihd">Do I have diabetes?</h1></div>
-    <div class="description" id="overview">
-        <p>Diabetes is a condition that impairs the body’s ability to process blood glucose, otherwise
+    <div class="dihd">
+        <div class="dihd-desc">
+            <h1>Do I have diabetes?</h1>
+            <p>Diabetes is a condition that impairs the body’s ability to process blood glucose, otherwise
             known as blood sugar. Without ongoing, careful management, diabetes can lead to a buildup of 
             sugars in the blood, which can increase the risk of dangerous complications, including stroke 
             and heart disease. Try this checker to see whether you are showing high probability of having
             diabetes or not.</p>
+        </div>
+        <div class="img-container">
+            <img class="dihd-img" src="amico.png" alt="illustration" border="0">
+        </div>
+    </div>
+    <div class="description" id="overview">
         <h2>Who is this checker for?</h2>
         <p>If you're concerned that you might be having diabetes, this checker should help you discover 
             your probability of having diabetes and evaluate your risk.</p>
@@ -197,18 +245,18 @@
         </p>
     </div>
     <div class="form-wrapper" id="check">
-        <h2>Check your probability of having diabetes here!</h2>
+        <h2>Check your probability of <br>having diabetes here!</h2>
         <form action = "/main" method="POST">
             <label>Pregnancies</label><br>
-            <input type="number" name="pregnancies" placeholder="e.g: 2" required><br>
+            <input type="number" name="pregnancies" placeholder="e.g: 2" min="0" required><br>
             <label>Glucose</label><br>
-            <input type="number" name="glucose" placeholder="e.g: 89" required><br>
+            <input type="number" name="glucose" placeholder="e.g: 89" min="1" required><br>
             <label>Insulin</label><br>
-            <input type="number" name="insulin" placeholder="e.g: 79" required><br>
+            <input type="number" name="insulin" placeholder="e.g: 79" min="1" required><br>
             <label>BMI</label><br>
-            <input type="number" name="bmi" placeholder="e.g: 28" required><br>
+            <input type="number" name="bmi" placeholder="e.g: 28" min="1" required><br>
             <label>Age</label><br>
-            <input type="number" name="age" placeholder="e.g: 21" required><br>
+            <input type="number" name="age" placeholder="e.g: 21" min="1"required><br>
             <p> <input type ="submit" value="submit" /> </p>
         </form>
         <br>
