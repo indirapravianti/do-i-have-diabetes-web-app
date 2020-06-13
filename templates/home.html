@@ -1,9 +1,129 @@
 <!doctype html>
 <html>
 <head>
-<title>Do you have diabetes?</title>
+<title>Do I have diabetes?</title>
 </head>
+<style>
+    * {
+    margin: 0;
+    padding: 0px;
+    box-sizing: border-box;
+    }
+
+    html, body {
+    scroll-behavior: smooth;
+    min-height:100%;
+    background: linear-gradient(0deg, #ff9966, #ff5e62);
+    color: white;
+    font-size: 18px;
+    }   
+    header{
+        text-align: center;
+        padding: 20px;
+        font-size: 20px;
+    }
+
+    .form-wrapper{
+        margin: 0 auto;
+        width: 50%;
+        text-align: center;
+    }
+
+    .form-wrapper h2{
+        padding: 10px;
+    }
+
+    input{
+        padding: 14px 7px;
+        margin: 8px;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type=submit] {
+        background-color: transparent;
+        color: white;
+        font-weight: 700;
+        padding:0.7em 2.4em;
+        border:0.1em solid #FFFFFF;
+        margin:2em 0.3em 0.3em 0;
+        border-radius:0.12em;
+        box-sizing: border-box;
+        cursor: pointer;
+        font-size: 16px;
+        transition: all 0.2s;
+        text-transform: capitalize;
+    }
+    input[type=submit]:hover {
+        color:#000000;
+        background-color: #ffffff;
+    }
+
+    .result{
+        padding:2.1em 7.2em;
+        border:0.1em solid #FFFFFF;
+        margin:4em 0.3em 0.3em 0;
+        border-radius:0.12em;
+        box-sizing: border-box;
+    }
+
+    .description, .diabetes-edu{
+        padding: 20px;
+        max-width: 80%;
+        margin: 0 auto;
+    }
+
+    .description h2{
+        margin-top: 10px;
+    }
+
+    @media screen and (max-width: 768px) {
+        .result{
+            padding: 0.7em 2.4em;
+            font-size: 14px;
+        }
+    }
+
+    .diabetes-edu{
+        padding-top: 50px;
+    }
+    
+    .types{
+        margin-top: 20px;
+    }
+
+    ul{
+        margin-left: 40px;
+    }
+
+    footer{
+        text-align: center;
+        font-size: 12px;
+        padding: 20px;
+    }
+</style>
 <body>
+<header>
+    <h1>Do I have diabetes?</h1>
+</header>
+<div class="description">
+    <p>Diabetes is a condition that impairs the body’s ability to process blood glucose, otherwise
+         known as blood sugar. Without ongoing, careful management, diabetes can lead to a buildup of 
+         sugars in the blood, which can increase the risk of dangerous complications, including stroke 
+         and heart disease. Try this checker to see whether you are showing high probability of having
+        diabetes or not.</p>
+    <h2>Who is this checker for?</h2>
+    <p>If you're concerned that you might be having diabetes, this checker should help you discover 
+        your probability of having diabetes and evaluate your risk.</p>
+    <h2>How accurate is it?</h2>
+    <p>The only conclusive test for diabetes is a blood test. However, this checker should give you 
+        an indication if you should consider seeking medical help.
+    </p>
+</div>
+<div class="form-wrapper">
+    <h2>Check your probability of having diabetes here!</h2>
     <form action = "/main" method="POST">
         <label>Pregnancies</label><br>
         <input type="number" name="pregnancies" placeholder="e.g: 2" required><br>
@@ -18,12 +138,65 @@
         <p> <input type ="submit" value="submit" /> </p>
     </form>
     <br>
+    <div class="result">
     {% if show %}
+        {% for variable, value in original_input.items() %}
+            <b>{{ variable }}</b> : {{ value }}<br>
+        {% endfor %}
         {% if result==0 %}
-            <h2>low probability</h2>
+            <h2>Great! You have low chance of having diabetes.</h2>
         {% else %}
-            <h2>high probability</h2>
+            <h2>Uh-oh! We think you might have a high chance of having diabetes.
+                Try to seek medical attention.
+            </h2>
         {% endif %}
     {% endif %}
+    </div>
+</div>
+
+<div class="diabetes-edu">
+    <h2>Types of Diabetes</h2>
+    <div class="types">
+        <h3>Type 1 Diabetes</h3>
+        <p>Also known as juvenile diabetes, this type occurs when the body fails to produce insulin. 
+            People with type I diabetes are insulin-dependent, which means they must take artificial 
+            insulin daily to stay alive.</p>
+    </div>
+    <div class="types">
+        <h3>Type 2 Diabetes</h3>
+        <p>Type 2 diabetes affects the way the body uses insulin. While the body still makes insulin, 
+            unlike in type I, the cells in the body do not respond to it as effectively as they once did. 
+            This is the most common type of diabetes, according to the National Institute of Diabetes 
+            and Digestive and Kidney Diseases, and it has strong links with obesity.</p>
+    </div>
+    <div class="types">
+        <h3>Gestational Diabetes</h3>
+        <p>This type occurs in women during pregnancy when the body can become less sensitive to insulin. 
+            Gestational diabetes does not occur in all women and usually resolves after giving birth.</p>
+    </div>
+</div>
+
+<div class="diabetes-edu">
+    <h2>Exercise and Diet Tips</h2>
+    <p>If a doctor diagnoses a person with type 2 diabetes, they will often recommend making 
+            lifestyle changes to support weight loss and overall health.<br>
+            Steps a person can take to embrace a lifestyle with diabetes include:</p>
+    <ul class="list">
+        <li class="list-item">Eating a diet high in fresh, nutritious foods, including whole grains, fruits, vegetables, 
+                lean proteins, low-fat dairy, and healthy fat sources, such as nuts.</li>
+        <li class="list-item">Avoiding high-sugar foods that provide empty calories, or calories that do not have other
+                 nutritional benefits, such as sweetened sodas, fried foods, and high-sugar desserts.</li>
+        <li class="list-item">Refraining from drinking excessive amounts of alcohol or keeping intake to less than one 
+                drink a day for women or two drinks a day for men.</li>
+        <li class="list-item">Engaging in at least 30 minutes exercise a day on at least 5 days of the week, such as 
+                of walking, aerobics, riding a bike, or swimming.</li>
+        <li class="list-item">Recognizing signs of low blood sugar when exercising, including dizziness, confusion, 
+                weakness, and profuse sweating.</li>
+    </ul>
+</div>
+
+<footer>
+    <p>Made with love ❤️. No cookies here🍪.</p>
+</footer>
     </body>
 </html>
